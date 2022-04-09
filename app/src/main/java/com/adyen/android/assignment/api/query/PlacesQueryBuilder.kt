@@ -1,4 +1,4 @@
-package com.adyen.android.assignment.api
+package com.adyen.android.assignment.api.query
 
 import com.adyen.android.assignment.BuildConfig
 import java.text.SimpleDateFormat

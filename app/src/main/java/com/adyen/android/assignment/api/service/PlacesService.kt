@@ -1,4 +1,4 @@
-package com.adyen.android.assignment.api
+package com.adyen.android.assignment.api.service
 
 import com.adyen.android.assignment.BuildConfig
 import com.adyen.android.assignment.api.model.ResponseWrapper
