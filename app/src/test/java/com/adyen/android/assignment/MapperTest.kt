@@ -13,22 +13,31 @@ class MapperTest {
 
     @Test
     fun testMap() {
-        val response = ResponseWrapper(
-            results = listOf(
-                venue1.copy(distance = 999),
-                venue2.copy(distance = 1000)
-            )
+        val venues = listOf(
+            venue1.copy(distance = 999, location = location.copy(address = "Somewhere", postcode = "1234 AB")),
+            venue2.copy(distance = 1000, location = location.copy(address = "Somewhere", postcode = null)),
+            venue3.copy(distance = 1001, location = location.copy(address = null, postcode = "1234 AB")),
+            venue4.copy(distance = 1234, location = location.copy(address = null, postcode = null))
         )
+        val response = ResponseWrapper(venues)
 
         val result = mapper.map(response)
 
         assertEquals(
-            Venue(venue1.name, Distance.Meters(999), "${venue1.location.address}, ${venue1.location.postcode}"),
+            Venue(venues[0].name, Distance.Meters(999), "${venues[0].location.address}, ${venues[0].location.postcode}"),
             result[0]
         )
         assertEquals(
-            Venue(venue2.name, Distance.KiloMeters(1f), "${venue2.location.address}, ${venue2.location.postcode}"),
+            Venue(venues[1].name, Distance.KiloMeters(1f), "${venues[1].location.address}"),
             result[1]
+        )
+        assertEquals(
+            Venue(venues[2].name, Distance.KiloMeters(1.001f), "${venues[2].location.postcode}"),
+            result[2]
+        )
+        assertEquals(
+            Venue(venues[3].name, Distance.KiloMeters(1.234f), "Unknown address"),
+            result[3]
         )
     }
 
