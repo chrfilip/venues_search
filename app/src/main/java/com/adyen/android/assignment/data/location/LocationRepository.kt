@@ -37,11 +37,7 @@ class LocationRepository(
     }
 
     fun isLocationEnabled(): Boolean {
-        val locationManager =
-            ContextCompat.getSystemService(
-                context,
-                LocationManager::class.java
-            ) as LocationManager
+        val locationManager = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         return LocationManagerCompat.isLocationEnabled(locationManager)
     }
 }

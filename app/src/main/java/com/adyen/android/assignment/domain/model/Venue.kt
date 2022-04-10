@@ -6,6 +6,6 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Venue(
     val name: String,
-    val distance: Int,
+    val distance: Distance,
     val address: String
 ) : Parcelable

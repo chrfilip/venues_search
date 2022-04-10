@@ -13,7 +13,12 @@ class Mapper {
 
     private fun Result.toVenue() = Venue(
         name = name,
-        distance = distance,
+        distance = getDistance(distance),
         address = "${location.address}, ${location.postcode}"
     )
+
+    private fun getDistance(meters: Int) = when (meters) {
+        in 0 until 1000 -> Distance.Meters(meters)
+        else -> Distance.KiloMeters(meters / 1000f)
+    }
 }

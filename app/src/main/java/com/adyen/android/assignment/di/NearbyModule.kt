@@ -16,6 +16,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -55,11 +56,17 @@ object NearbyModule {
 
     @Singleton
     @Provides
-    fun providePlacesService(retrofit: Retrofit): PlacesService = retrofit.create(PlacesService::class.java)
+    fun providePlacesService(retrofit: Retrofit): PlacesService =
+        retrofit.create(PlacesService::class.java)
 
     @Singleton
     @Provides
-    fun providesPlacesRepository(placesService: PlacesService) = PlacesRepository(placesService)
+    fun providesPlacesRepository(
+        placesService: PlacesService
+    ) = PlacesRepository(
+        placesService,
+        VenueRecommendationsQueryBuilder(),
+    )
 
     @Singleton
     @Provides
@@ -79,9 +86,9 @@ object NearbyModule {
         locationRepository: LocationRepository,
         placesRepository: PlacesRepository
     ) = GetNearbyPlacesUseCase(
+        dispatcher = Dispatchers.IO,
         locationRepository = locationRepository,
         placesRepository = placesRepository,
-        queryBuilder = VenueRecommendationsQueryBuilder(),
         mapper = Mapper()
     )
 
