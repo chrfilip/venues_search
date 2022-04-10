@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="?attr/colorSurface">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
@@ -39,6 +39,8 @@
         android:gravity="center"
         android:textAlignment="center"
         android:visibility="gone"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/textLarge"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,6 +55,7 @@
         android:layout_marginBottom="@dimen/space_1"
         android:clickable="true"
         android:focusable="true"
+        android:contentDescription="@string/search_button_acc"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

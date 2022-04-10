@@ -8,5 +8,6 @@
     <string name="settings">Settings</string>
     <string name="enable_location_massage">Please enable location</string>
     <string name="location_permission_rationale">The app needs the location permission in order to show nearby venues</string>
-    <string name="distance">Distance: %1$d km</string>
+    <string name="distance">%1$d km</string>
+    <string name="search_button_acc">Search places</string>
 </resources>

@@ -11,12 +11,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.adyen.android.assignment.R
 import com.adyen.android.assignment.databinding.NearbyPlacesFragmentBinding
 import com.adyen.android.assignment.domain.model.Venue
@@ -73,6 +75,11 @@ class NearbyPlacesFragment : Fragment() {
     private fun initUi() {
         with(binding) {
             recyclerview.adapter = adapter
+            ResourcesCompat.getDrawable(resources, R.drawable.divider, null)?.let {
+                val decorator = DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
+                decorator.setDrawable(it)
+                recyclerview.addItemDecoration(decorator)
+            }
             locationButton.setOnClickListener { viewModel.dispatch(NearbyPlacesUiEvent.OnSearchButtonClicked) }
         }
     }

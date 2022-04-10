@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/rounded_corners"
     android:padding="@dimen/space_2">
 
     <TextView
         android:id="@+id/venue_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/space_1"
+        android:textColor="@color/text_color"
         app:layout_constraintBottom_toTopOf="@id/venue_address"
         app:layout_constraintEnd_toStartOf="@id/venue_distance"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
         tools:text="Fancy venue name" />
 
     <TextView
@@ -23,8 +25,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="end"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/text_color"
         app:layout_constraintBottom_toBottomOf="@id/venue_name"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/venue_name"
         app:layout_constraintTop_toTopOf="@id/venue_name"
         tools:text="4.6 km" />
@@ -34,10 +37,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
+        android:textColor="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/venue_name"
         app:layout_constraintStart_toStartOf="@id/venue_name"
         app:layout_constraintTop_toBottomOf="@id/venue_name"
-        tools:text="Gedimino pilis" />
+        tools:text="1234 AB" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
