@@ -1,4 +1,4 @@
-package com.adyen.android.assignment.api.common
+package com.adyen.android.assignment.data.api.common
 
 sealed class SafeApiResponse<out T : Any> {
 

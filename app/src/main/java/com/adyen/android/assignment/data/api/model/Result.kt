@@ -1,4 +1,4 @@
-package com.adyen.android.assignment.api.model
+package com.adyen.android.assignment.data.api.model
 
 data class Result(
     val categories: List<Category>,

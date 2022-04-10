@@ -1,8 +1,7 @@
-package com.adyen.android.assignment.domain
+package com.adyen.android.assignment.domain.model
 
-import com.adyen.android.assignment.api.model.ResponseWrapper
-import com.adyen.android.assignment.api.model.Result
-import com.adyen.android.assignment.domain.model.Venue
+import com.adyen.android.assignment.data.api.model.ResponseWrapper
+import com.adyen.android.assignment.data.api.model.Result
 
 class Mapper {
 

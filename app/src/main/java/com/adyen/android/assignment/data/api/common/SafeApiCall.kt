@@ -1,4 +1,4 @@
-package com.adyen.android.assignment.api.common
+package com.adyen.android.assignment.data.api.common
 
 import retrofit2.Response
 import kotlin.Exception

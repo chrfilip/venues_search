@@ -1,4 +1,4 @@
-package com.adyen.android.assignment.api.query
+package com.adyen.android.assignment.data.api.query
 
 class VenueRecommendationsQueryBuilder : PlacesQueryBuilder() {
     private var latitudeLongitude: String? = null

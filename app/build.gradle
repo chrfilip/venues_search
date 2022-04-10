@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
 }
 
 if (!file("local.gradle").exists()) {
@@ -32,6 +33,15 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
     }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -46,11 +56,19 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.appcompat:appcompat:1.4.1"
     implementation "androidx.core:core-ktx:1.7.0"
+    implementation 'androidx.fragment:fragment-ktx:1.4.1'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinx_coroutines_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+    implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_ktx_version"
+
 
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
     implementation "com.squareup.okhttp3:logging-interceptor:$httplogging_version"
+
+    implementation "com.google.android.gms:play-services-location:$gms_location_version"
 
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
